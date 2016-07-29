@@ -8,6 +8,10 @@ namespace Bumblebee.Setup.DriverEnvironments
 	public abstract class RemoteDriverEnvironment<TWebDriver> : IDriverEnvironment
 		where TWebDriver : IWebDriver, new()
 	{
+		public string remoteURL { get; set; }
+		public DesiredCapabilities capabilities { get; set; }
+		public RemoteWebDriver driver { get; set; }
+
 		public RemoteDriverEnvironment(DesiredCapabilities capabilities)
 		{
 			this.remoteURL = "http://localhost:4444/wd/hub";

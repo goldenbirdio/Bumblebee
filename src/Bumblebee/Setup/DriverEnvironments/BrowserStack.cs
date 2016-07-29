@@ -1,11 +1,17 @@
 using System;
+
+using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 
 namespace Bumblebee.Setup.DriverEnvironments
 {
-    public class BrowserStack : RemoteDriverEnvironment<BrowserStackDriver>
+	public class BrowserStack<TWebDriver> : RemoteDriverEnvironment<TWebDriver>
+		where TWebDriver : IWebDriver, new()
     {
-        public BrowserStack(DesiredCapabilities capabilities) : base(capabilities)
+		public string bsUserName { get; set; }
+		public string bsKey { get; set; }
+
+		public BrowserStack(DesiredCapabilities capabilities) : base(capabilities)
         {
             this.remoteURL = "http://hub-cloud.browserstack.com/wd/hub/";
 

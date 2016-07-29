@@ -2,7 +2,7 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{690961A6-7130-4AFB-AE14-51D18DC6B223}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -106,17 +106,17 @@
     <Compile Include="Exceptions\VerificationException.cs" />
     <Compile Include="Setup\Settings.cs" />
     <Compile Include="Setup\ThreadedSession.cs" />
+    <Compile Include="Setup\DriverEnvironments\BrowserStack.cs" />
+    <Compile Include="Setup\DriverEnvironments\RemoteDriverEnvironment.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
-    <Reference Include="WebDriver, Version=2.45.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="WebDriver, Version=2.45.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\Selenium.WebDriver.2.45.0\lib\net40\WebDriver.dll</HintPath>
-      <Private>True</Private>
     </Reference>
-    <Reference Include="WebDriver.Support, Version=2.45.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="WebDriver.Support, Version=2.45.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\Selenium.Support.2.45.0\lib\net40\WebDriver.Support.dll</HintPath>
-      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
